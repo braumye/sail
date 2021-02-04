@@ -2,11 +2,10 @@
 
 namespace Laravel\Sail;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
-class SailServiceProvider extends ServiceProvider implements DeferrableProvider
+class SailServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -74,5 +73,15 @@ class SailServiceProvider extends ServiceProvider implements DeferrableProvider
             'sail.install-command',
             'sail.publish-command',
         ];
+    }
+
+    /**
+     * Determine if the provider is deferred.
+     *
+     * @return bool
+     */
+    public function isDeferred()
+    {
+        return true;
     }
 }
